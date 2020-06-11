@@ -1,0 +1,18 @@
+{% extends "pages/base.html" %}
+
+{% block title %}JACOB - Blogs{% endblock %}
+
+{% block content %}
+  {% for blog in blog_list %}
+	<article class="blogs_article">
+    <img alt="{{ blog.caption }}" src="{{ blog.src }}">
+    <p class="blog_except">{{ work.description }}</p>
+    <ul class="link_list">
+      {% for link in blog_links %}
+      <li class="links">{{ link }}</li>
+      {% endfor %}
+    </ul>
+    <hr class="blog_separator">
+  </article>
+  {% endfor %}
+{% endblock %}

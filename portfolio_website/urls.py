@@ -17,7 +17,7 @@ from pages import views
 
 urlpatterns = [
 	path('', views.home, name='home'),
-	path('about/', views.home, name='about'),
+	path('about/', views.about, name='about'),
 	path('work/', views.work, name='work'),
 	path('blog/', views.blog, name='blog'),
 	path('contact/', views.contact, name='contact'),
