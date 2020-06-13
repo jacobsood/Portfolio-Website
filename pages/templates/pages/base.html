@@ -16,8 +16,7 @@
   {% block body %}
     {% block header %}
     <header id="page_header">
-      <h1 class="my_name"><a href="{% url 'home' %}">
-        {% block name %}HRITHVIK SOOD{% endblock %}</a></h1>
+      <h1 class="home_button"><a href="{% url 'home' %}">HRITHVIK SOOD</a></h1>
       {% block nav_bar %}
       <nav class="menu">
         <ul>
@@ -43,15 +42,20 @@
 
     {% block footer %}
     <footer id="page_footer">
-      <ul id=social_media>
-        <li><a href="{% url 'email' %}"><img src=""></a></li>
-        <li><a href="{% url 'linkedin' %}"><img src=""></a></li>
-        <li><a href="{% url 'github' %}"><img src=""></a></li>
-        <li><a href="{% url 'bitbucket' %}"><img src=""></a></li>
-        <li><a href="{% url 'instagram' %}"><img src=""></a></li>
+      <p id="follow_me">Get in Touch</p>
+      <ul id="social_media_foot">
+        <li><a href="{% url 'email' %}"><img class="social_media"
+          src="{% static 'images/flaticons/email.png' %}">Email</a></li>
+        <li><a href="{% url 'linkedin' %}"><img class="social_media"
+          src="{% static 'images/flaticons/linkedin.png' %}">LinkedIn</a></li>
+        <li><a href="{% url 'github' %}"><img class="social_media"
+          src="{% static 'images/flaticons/github.png' %}">Github</a></li>
+        <li><a href="{% url 'bitbucket' %}"><img class="social_media"
+          src="{% static 'images/flaticons/bitbucket.png' %}">Bitbucket</a></li>
+        <li><a href="{% url 'instagram' %}"><img class="social_media"
+          src="{% static 'images/flaticons/instagram.png' %}">Instagram</a></li>
       </ul>
-      <p id="location">Currently in Sydney, Australia.</p>
-      <p id="copyright">&copy; Hrithvik Sood 2020.</p>
+      <p id="copyright">&copy; Hrithvik Sood 2020. Currently in Sydney, Australia.</p>
     </footer>
     {% endblock %}
   {% endblock %}
