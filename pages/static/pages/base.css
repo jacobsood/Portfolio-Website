@@ -12,49 +12,120 @@
   src: url("../fonts/Coco.otf") format("opentype");
 }
 
-body {
-  min-height: 100%;
+html, body {
+  height: 100%;
   width: 100%;
-  background-color: black;
+  background-color: white;
   margin: 0px;
-}
-
-/* The following style is related to the page header and footer block*/
-header#page_header, footer#page_footer {
-  text-align: center;
-}
-
-#page_footer {
-  position: absolute;
-  bottom: 0;
-}
-
-/* The following style is related to the index page */
-#landing_div {
-  color: white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin: -4% 0 0 -9%;
-}
-
-.typed-cursor, #name_typed {
-  font-size: 4em;
-  font-family: "Coco";
-  text-align: center;
-  letter-spacing: 10px;
-  display: inline;
-  padding-top: 20px;
-}
-
-#name_typed {
-  padding-left: 20px;
-}
-
-.typed-cursor {
-  padding-right: 5px;
 }
 
 *::selection {
   background-color: red;
+}
+
+/* The following style is related to the page header and footer block*/
+header, footer {
+  margin: 0;
+  padding: 0;
+  font-family: "Audrey";
+  text-align: center;
+  color: #999;
+}
+
+#page_header {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  display: inline;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: unset;
+}
+
+a:hover {
+  color: black;
+}
+
+a:active {
+  color: unset;
+}
+
+ul li a, #page_header a {
+  transition: color 0.3s linear;
+}
+
+.content {
+  height: 90%;
+}
+
+#page_footer {
+  background-color: #f3f3f3;
+  bottom: 0;
+}
+
+.social_media {
+  width: 15px;
+  padding-right: 5px;
+  position: relative;
+  top: 50%;
+  -ms-transform: translateY(10%);
+  transform: translateY(10%);
+}
+
+ul li a {
+  padding-right: 20px;
+}
+
+#social_media_foot {
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+#follow_me {
+  margin: 0;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+
+#copyright {
+  font-family: Arial;
+  margin: 0;
+  font-weight: 600;
+  padding-bottom: 30px;
+}
+
+/* The following style is related to the index page */
+#landing_div {
+  height: 100%;
+  color: white;
+  background-color: black;
+  cursor: url("../images/down_arrow.png"), auto;
+}
+
+#typed_js {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -3.5% 0 0 -8.5%;
+  padding-top: 20px;
+  padding-left: 30px;
+}
+
+.typed-cursor, #name_typed {
+  font-size: 3em;
+  font-family: "Coco";
+  text-align: center;
+  letter-spacing: 10px;
+  display: inline;
 }
