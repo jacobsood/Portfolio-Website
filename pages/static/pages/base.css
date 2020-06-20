@@ -32,10 +32,16 @@ header, footer {
   color: #999;
 }
 
-#page_header {
-  position: sticky;
-  position: -webkit-sticky;
-  top: 0;
+#home_button {
+  padding: 0;
+  margin: 0;
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+
+.menu ul li {
+  padding-right: 30px;
+  padding-left: 30px;
 }
 
 ul {
@@ -65,6 +71,11 @@ ul li a, #page_header a {
   transition: color 0.3s linear;
 }
 
+#page_header {
+  position: sticky;
+  top: 0;
+}
+
 .content {
   height: 90%;
 }
@@ -83,7 +94,7 @@ ul li a, #page_header a {
   transform: translateY(10%);
 }
 
-ul li a {
+#social_media_foot li a {
   padding-right: 20px;
 }
 
@@ -94,7 +105,7 @@ ul li a {
 
 #follow_me {
   margin: 0;
-  padding-top: 20px;
+  padding-top: 15px;
   padding-bottom: 15px;
 }
 
@@ -102,11 +113,12 @@ ul li a {
   font-family: Arial;
   margin: 0;
   font-weight: 600;
-  padding-bottom: 30px;
+  padding-bottom: 20px;
 }
 
 /* The following style is related to the index page */
-#landing_div {
+#typedjs_container {
+  text-align: center;
   height: 100%;
   color: white;
   background-color: black;
@@ -117,15 +129,27 @@ ul li a {
   position: absolute;
   top: 50%;
   left: 50%;
-  margin: -3.5% 0 0 -8.5%;
-  padding-top: 20px;
-  padding-left: 30px;
+  transform: translate(-50%, -50%);
+  display: inline-block;
 }
 
-.typed-cursor, #name_typed {
+.typed-cursor {
   font-size: 3em;
   font-family: "Coco";
-  text-align: center;
   letter-spacing: 10px;
   display: inline;
+}
+
+/* Typedjs cursor makes the text seem off centered. This fixes that. */
+#name_typed {
+  margin-left: 10px;
+}
+
+#coming_soon {
+  opacity: 0;
+}
+
+.fade_in {
+  opacity: 100;
+  transition: opacity 0.5s;
 }
