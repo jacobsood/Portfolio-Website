@@ -17,9 +17,8 @@
   {% block body %}
     {% block header %}
     <header id="page_header">
-      <h1 class="home_button"><a href="{% url 'home' %}">HRITHVIK SOOD</a></h1>
-      {% block nav_bar %}
       <nav class="menu">
+        <p class="home"><a href="{% url 'home' %}">HRITHVIK SOOD</a></p>
         <ul>
           <li><a href="{% url 'about' %}">ABOUT</a></li>
           <li><a href="{% url 'work' %}">WORK</a></li>
@@ -27,7 +26,6 @@
           <li><a href="{% url 'contact' %}">CONTACT</a></li>
         </ul>
       </nav>
-      {% endblock %}
     </header>
     {% endblock %}
 
@@ -40,23 +38,22 @@
       {% block content %}
       {% endblock %}
     </div>
-
+    
     {% block footer %}
     <footer id="page_footer">
-      <p id="follow_me">Get in Touch</p>
+      <p id="copyright">&copy; Hrithvik Sood 2020. Currently in Sydney, Australia.</p>
       <ul id="social_media_foot">
         <li><a href="{% url 'email' %}"><img class="social_media"
-          src="{% static 'images/flaticons/email.png' %}">Email</a></li>
+          src="{% static 'images/flaticons/email.png' %}"></a></li>
         <li><a href="{% url 'linkedin' %}"><img class="social_media"
-          src="{% static 'images/flaticons/linkedin.png' %}">LinkedIn</a></li>
+          src="{% static 'images/flaticons/linkedin.png' %}"></a></li>
         <li><a href="{% url 'github' %}"><img class="social_media"
-          src="{% static 'images/flaticons/github.png' %}">Github</a></li>
+          src="{% static 'images/flaticons/github.png' %}"></a></li>
         <li><a href="{% url 'bitbucket' %}"><img class="social_media"
-          src="{% static 'images/flaticons/bitbucket.png' %}">Bitbucket</a></li>
+          src="{% static 'images/flaticons/bitbucket.png' %}"></a></li>
         <li><a href="{% url 'instagram' %}"><img class="social_media"
-          src="{% static 'images/flaticons/instagram.png' %}">Instagram</a></li>
+          src="{% static 'images/flaticons/instagram.png' %}"></a></li>
       </ul>
-      <p id="copyright">&copy; Hrithvik Sood 2020. Currently in Sydney, Australia.</p>
     </footer>
     {% endblock %}
   {% endblock %}
