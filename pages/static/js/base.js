@@ -48,15 +48,18 @@ var typed = new Typed("#name_typed", {
   showCursor: true,
   cursorChar: "|",
   onTypingResumed: function(pos, typed) { 
-    document.getElementById("coming_soon").addClass("fade_in");
+    setTimeout(function() {
+      comingSoon.classList.add("fade_in");
+      b.reveal(10000, 2000);
+    }, 2750);
   }
 });
 
 // Coming soon baffle
-let b = baffle('#coming_soon')
+let b = baffle("#coming_soon")
   .start()
   .set({
-    characters: '█<█ ▒▓/▓▓ ▒>▓<▓ ░█▓ ▒█>░▓ ▓██░ ▒▓░ ▓/█▒ >/░▒',
+    characters: "█<█ ▒▓/▓▓ ▒>▓<▓ ░█▓ ▒█>░▓ ▓██░ ▒▓░ ▓/█▒ >/░▒",
     speed: 200,
   });
 
