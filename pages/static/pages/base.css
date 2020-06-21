@@ -1,3 +1,4 @@
+/* Fonts */
 @font-face {
   font-family: "Audrey";
   font-weight: normal;
@@ -12,9 +13,9 @@
   src: url("../fonts/Coco.otf") format("opentype");
 }
 
+/* Global style */
 html, body {
   height: 100%;
-  width: 100%;
   background-color: white;
   margin: 0px;
 }
@@ -25,50 +26,23 @@ html, body {
 
 /* The following style is related to the page header and footer block*/
 header, footer {
-  margin: 0;
-  padding: 0;
-  font-family: "Audrey";
+  font-family: "Audrey", "Montserrat", "Helvetica", "Arial", "sans-serif";
+  text-transform: uppercase;
+  opacity: 0.8;
+  font-size: 13px;
+  font-weight: 600;
   text-align: center;
   color: #999;
+  padding: 20px 5%;
 }
 
-#home_button {
-  padding: 0;
-  margin: 0;
-  padding-top: 25px;
-  padding-bottom: 10px;
+nav, footer {
+  display: flex;
+  justify-content: center;
 }
 
-.menu ul li {
-  padding-right: 30px;
-  padding-left: 30px;
-}
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-ul li {
-  display: inline;
-}
-
-a:link, a:visited {
-  text-decoration: none;
-  color: unset;
-}
-
-a:hover {
-  color: black;
-}
-
-a:active {
-  color: unset;
-}
-
-ul li a, #page_header a {
-  transition: color 0.3s linear;
+.home {
+  font-size: 16px;
 }
 
 #page_header {
@@ -76,13 +50,14 @@ ul li a, #page_header a {
   top: 0;
 }
 
-.content {
-  height: 90%;
-}
-
-#page_footer {
+footer {
+  height: 15vh;
   background-color: #f3f3f3;
   bottom: 0;
+}
+
+footer ul, nav ul {
+  margin-left: auto;
 }
 
 .social_media {
@@ -90,34 +65,49 @@ ul li a, #page_header a {
   padding-right: 5px;
   position: relative;
   top: 50%;
-  -ms-transform: translateY(10%);
   transform: translateY(10%);
 }
 
-#social_media_foot li a {
-  padding-right: 20px;
+/* The following is related to lists */
+
+ul {
+  padding: 0;
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
 }
 
-#social_media_foot {
-  margin: 0;
-  padding-bottom: 20px;
+li {
+  padding: 0px 15px;
 }
 
-#follow_me {
-  margin: 0;
-  padding-top: 15px;
-  padding-bottom: 15px;
+/* The following is related to links */
+
+a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
 }
 
-#copyright {
-  font-family: Arial;
-  margin: 0;
-  font-weight: 600;
-  padding-bottom: 20px;
+a:hover {
+  color: black;
 }
 
-/* The following style is related to the index page */
+a:active {
+  color: inherit;
+}
+
+a {
+  transition: color 0.3s linear;
+}
+
+.content {
+  height: 90%;
+}
+
+/* The following style is related to the landing page */
 #typedjs_container {
+  margin: 0;
   text-align: center;
   height: 100%;
   color: white;
@@ -126,6 +116,7 @@ ul li a, #page_header a {
 }
 
 #typed_js {
+  width: 20rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -140,16 +131,16 @@ ul li a, #page_header a {
   display: inline;
 }
 
-/* Typedjs cursor makes the text seem off centered. This fixes that. */
-#name_typed {
-  margin-left: 10px;
-}
-
 #coming_soon {
   opacity: 0;
 }
 
-.fade_in {
+#coming_soon.fade_in {
   opacity: 100;
-  transition: opacity 0.5s;
+  transition: opacity 2s;
+}
+
+/* Typedjs cursor makes the text seem off centered. This fixes that. */
+#name_typed {
+  margin-left: 15px;
 }
