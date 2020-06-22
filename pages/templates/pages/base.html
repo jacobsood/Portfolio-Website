@@ -17,24 +17,24 @@
   {% block body %}
     {% block header %}
     <header id="page_header">
-      <nav class="menu">
-        <p class="home"><a href="{% url 'home' %}">HRITHVIK SOOD</a></p>
+      <nav>
+        <p class="home menu"><a href="{% url 'home' %}">HRITHVIK SOOD</a></p>
         <ul>
-          <li><a href="{% url 'about' %}">ABOUT</a></li>
-          <li><a href="{% url 'work' %}">WORK</a></li>
-          <li><a href="{% url 'blog' %}">BLOG</a></li>
-          <li><a href="{% url 'contact' %}">CONTACT</a></li>
+          <li class="menu"><a href="{% url 'about' %}">ABOUT</a></li>
+          <li class="menu"><a href="{% url 'work' %}">WORK</a></li>
+          <li class="menu"><a href="{% url 'blog' %}">BLOG</a></li>
+          <li class="menu"><a href="{% url 'contact' %}">CONTACT</a></li>
         </ul>
       </nav>
     </header>
     {% endblock %}
 
-    {# optional 'current page' breadcrumb #}
-    {% if breadcrumb_title%}
-    <p class="breadcrumb">{{ breadcrumb_title }}</p>
-    {% endif %}
-
-    <div class="content">
+    <div id="content">
+      {# optional 'current page' breadcrumb #}
+      {% if breadcrumb_title%}
+        <p class="breadcrumb">{{ breadcrumb_title }}</p>
+      {% endif %}
+      
       {% block content %}
       {% endblock %}
     </div>
