@@ -30,13 +30,12 @@ html, body {
 header, footer {
   font-family: "Audrey", "Montserrat", "Helvetica", "Arial", "sans-serif";
   text-transform: uppercase;
-  opacity: 0.8;
   font-size: 13px;
   font-weight: 600;
   text-align: center;
   color: #999;
   padding: 20px 5%;
-  background-color: inherit;
+  background-color: none;
 }
 
 nav, footer {
@@ -46,6 +45,10 @@ nav, footer {
 
 nav ul {
   margin-left: auto;
+}
+
+.menu, #copyright, footer ul li {
+  opacity: 0.8;
 }
 
 footer ul {
@@ -113,12 +116,6 @@ a {
   transition: color 0.3s linear;
 }
 
-/* The following is related entending the page to minimum view height */
-#content {
-  background-color: inherit;
-  min-height: 90%;
-}
-
 /* The following is related to the landing page */
 #typedjs_container {
   margin: 0;
@@ -157,4 +154,21 @@ a {
 /* Typedjs cursor makes the text seem off centered. This fixes that. */
 #name_typed {
   margin-left: 15px;
+}
+
+/* The following is related to the main content */
+#content {
+  background-color: inherit;
+  min-height: 90%;
+  width: 60%;
+  margin: 0 auto;
+  font-family: "Montserrat";
+  font-size: 26px;
+  line-height: 1.6em;
+}
+
+.breadcrumb {
+  text-transform: lowercase;
+  letter-spacing: 1px;
+  font-weight: 900;
 }
