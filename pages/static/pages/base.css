@@ -15,16 +15,18 @@
 
 /* Global style */
 html, body {
-  height: 100%;
-  background-color: white;
+  height: 100vh;
+  background-color: #F0FFFF;
   margin: 0px;
+  display: flex;
+  flex-direction: column;
 }
 
 *::selection {
   background-color: red;
 }
 
-/* The following style is related to the page header and footer block*/
+/* The following is related to the page header and footer */
 header, footer {
   font-family: "Audrey", "Montserrat", "Helvetica", "Arial", "sans-serif";
   text-transform: uppercase;
@@ -34,6 +36,7 @@ header, footer {
   text-align: center;
   color: #999;
   padding: 20px 5%;
+  background-color: inherit;
 }
 
 nav, footer {
@@ -41,28 +44,37 @@ nav, footer {
   justify-content: center;
 }
 
+nav ul {
+  margin-left: auto;
+}
+
+footer ul {
+  margin: auto;
+}
+
 .home {
   font-size: 16px;
 }
 
-#page_header {
+header {
   position: sticky;
   top: 0;
 }
 
 footer {
-  height: 15vh;
-  background-color: #f3f3f3;
+  font-family: "Montserrat", "Helvetica";
+  margin-top: auto;
   bottom: 0;
+  padding: 5vh 20%;
 }
 
-footer ul, nav ul {
-  margin-left: auto;
+#copyright {
+  margin: auto;
 }
 
 .social_media {
-  width: 15px;
-  padding-right: 5px;
+  width: 1rem;
+  padding-left: 5px;
   position: relative;
   top: 50%;
   transform: translateY(10%);
@@ -79,7 +91,7 @@ ul {
 }
 
 li {
-  padding: 0px 15px;
+  margin: 0px 15px;
 }
 
 /* The following is related to links */
@@ -101,15 +113,17 @@ a {
   transition: color 0.3s linear;
 }
 
-.content {
-  height: 90%;
+/* The following is related entending the page to minimum view height */
+#content {
+  background-color: inherit;
+  min-height: 90%;
 }
 
-/* The following style is related to the landing page */
+/* The following is related to the landing page */
 #typedjs_container {
   margin: 0;
   text-align: center;
-  height: 100%;
+  min-height: 100vh;
   color: white;
   background-color: black;
   cursor: url("../images/down_arrow.png"), auto;
