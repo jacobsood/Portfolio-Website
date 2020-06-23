@@ -1,7 +1,6 @@
 /* Global */
 const body = document.body;
-const pageHeader = document.getElementById("page_header");
-const footer = document.getElementById("page_footer");
+const navBar = document.getElementById("nav_bar");
 
 /* Script relating to the header */
 
@@ -17,22 +16,19 @@ var bgIndex = 0;
 
 // update background colour
 // parameter: element
-function updateBg(elements, colourScheme) {
-  for (var i = 0; i < elements.length; i++) {
-    if (colourScheme === "bw") 
-      elements[i].style.backgroundColor = bwColour[landingIndex];
-    else if (colourScheme === "whiteShades") 
-      elements[i].style.backgroundColor = whiteShades[bgIndex];
-  }
-  if (colourScheme === "bw") 
+function updateBg(element, colourScheme) {
+  if (colourScheme === "bw") {
+    element.style.backgroundColor = bwColour[landingIndex];
     landingIndex = (++landingIndex >= landingBgSize ? 0 : landingIndex);
-  else if (colourScheme === "whiteShades") 
+  }
+  else if (colourScheme === "whiteShades") {
+    element.style.backgroundColor = whiteShades[bgIndex];
     bgIndex = (++bgIndex >= bgSize ? 0 : bgIndex);
+  }
 }
 
 function bgReset() {
   body.style.backgroundColor = "#F0FFFF";
-  footer.style.backgroundColor = "#F0FFFF";
 }
 
 /* Script related to the landing page */
@@ -40,16 +36,17 @@ const typedJsContainer = document.getElementById("typedjs_container");
 const typedJsText = document.getElementsByClassName("hover_state");
 const comingSoon = document.getElementById("coming_soon");
 
-// On hover, flip background and foreground colour
-if (typedJsText) {
+// if on the home page
+if (window.location.pathname === "/") {
+  // On hover, flip background and foreground colour
   for (var i = 0; i < 2; i++) {
     typedJsText[i].addEventListener("mouseenter", e => {
-      updateBg([typedJsContainer], "bw");
+      updateBg(typedJsContainer, "bw");
       typedJsContainer.style.color = "black";
     });
   
     typedJsText[i].addEventListener("mouseleave", e => {
-      updateBg([typedJsContainer], "bw");
+      updateBg(typedJsContainer, "bw");
       typedJsContainer.style.color = "white";
     });
   }
@@ -82,7 +79,7 @@ if (typedJsText) {
 
   // Move down from landing page into the home page and hide typed js
   typedJsContainer.addEventListener("click", e => {
-    pageHeader.scrollIntoView({behavior: "smooth"});
+    navBar.scrollIntoView({behavior: "smooth"});
     setTimeout(function() {
       typedJsContainer.style.display = "none";
     }, 600);
@@ -91,25 +88,13 @@ if (typedJsText) {
 
 /* Script related to the header and footer */
 const menu = document.getElementsByClassName("menu");
-const socialMedia = document.getElementsByClassName("social_media");
+const menuLen = menu.length;
 
-const headerLen = menu.length;
-const footerLen = socialMedia.length;
-
-for (var i = 0; i < footerLen; i++) {
-  socialMedia[i].addEventListener("mouseenter", e => {
-    updateBg([body, footer], "whiteShades");
-  });
-}
-for (var i = 0; i < footerLen; i++) {
-  socialMedia[i].addEventListener("mouseleave", bgReset);
-}
-
-for (var i = 0; i < headerLen; i++) {
+for (var i = 0; i < menuLen; i++) {
   menu[i].addEventListener("mouseenter", e => {
-    updateBg([body, footer], "whiteShades");
+    updateBg(body, "whiteShades");
   });
 }
-for (var i = 0; i < headerLen; i++) {
+for (var i = 0; i < menuLen; i++) {
   menu[i].addEventListener("mouseleave", bgReset);
 }
