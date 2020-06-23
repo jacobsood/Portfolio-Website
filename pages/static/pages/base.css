@@ -14,87 +14,67 @@
 }
 
 /* Global style */
-html, body {
-  height: 100vh;
+body {
+  min-height: 100vh;
   background-color: #F0FFFF;
   margin: 0px;
-  display: flex;
-  flex-direction: column;
 }
 
 *::selection {
   background-color: red;
 }
 
-/* The following is related to the page header and footer */
-header, footer {
-  font-family: "Audrey", "Montserrat", "Helvetica", "Arial", "sans-serif";
-  text-transform: uppercase;
+/* The following is related to the nav bar and footer */
+nav, 
+footer {
   font-size: 13px;
+  text-transform: uppercase;
   font-weight: 600;
   text-align: center;
   color: #999;
-  padding: 20px 5%;
-  background-color: none;
-}
-
-nav, footer {
+  background-color: transparent;
+  
   display: flex;
-  justify-content: center;
-}
-
-nav ul {
-  margin-left: auto;
-}
-
-.menu, #copyright, footer ul li {
-  opacity: 0.8;
-}
-
-footer ul {
-  margin: auto;
-}
-
-.home {
-  font-size: 16px;
-}
-
-header {
-  position: sticky;
-  top: 0;
-}
-
-footer {
-  font-family: "Montserrat", "Helvetica";
-  margin-top: auto;
-  bottom: 0;
-  padding: 5vh 20%;
-}
-
-#copyright {
-  margin: auto;
-}
-
-.social_media {
-  width: 1rem;
-  padding-left: 5px;
-  position: relative;
-  top: 50%;
-  transform: translateY(10%);
-}
-
-/* The following is related to lists */
-
-ul {
-  padding: 0;
-  display: flex;
-  list-style-type: none;
   align-items: center;
   justify-content: center;
 }
 
-li {
-  margin: 0px 15px;
+nav {
+  position: sticky;
+  top: 0;
+  font-family: "Audrey";
+  height: 5vh;
+  padding: 0 5%;
+}
+
+footer {
+  font-family: "Montserrat", "Helvetica";
+  height: 10vh;
+  padding: 0 25%;
+}
+
+nav ul,
+footer ul {
+  margin-left: auto;
+}
+
+ul {
+  display: flex;
+  list-style-type: none;
+}
+
+li.menu {
+  margin-left: 30px;
+}
+
+.menu, 
+#copyright {
+  opacity: 0.8;
+}
+
+footer img {
+  width: 1rem;
+  margin-left: 5px;
 }
 
 /* The following is related to links */
@@ -145,7 +125,7 @@ a {
 #coming_soon {
   opacity: 0;
   padding: 0;
-  width: 11rem;
+  width: match-content;
   margin: 0 auto;
 }
 
@@ -162,16 +142,49 @@ a {
 /* The following is related to the main content */
 #content {
   background-color: inherit;
-  min-height: 90%;
-  width: 60%;
-  margin: 0 auto;
+  display: flex;
+  min-height: 96vh;
+  flex-direction: column;
   font-family: "Montserrat";
-  font-size: 26px;
+  font-size: 18px;
   line-height: 1.6em;
+  text-align: center;
+  margin: 0 auto;
 }
 
-.breadcrumb {
-  text-transform: lowercase;
-  letter-spacing: 1px;
-  font-weight: 900;
+/* The following is related to the work and blog content */
+section {
+  font-weight: 100;
+  max-height: inherit;
+}
+
+.rev_images {
+  height: 800px;
+  width: 950px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.rev_images img {
+  width: 100%;
+  height: 800px;
+}
+
+.article_content {
+  width: 65%;
+  margin: 40px auto;
+  text-align: left;
+}
+
+.section_header {
+  display: flex;
+  min-height: 50vh;
+  align-items: center;
+  justify-content: center;
+  background: #F0EBF4;
+}
+
+.section_header p {
+  display: block;
+  flex: 1;
 }
