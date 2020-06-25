@@ -5,30 +5,32 @@ const navBar = document.getElementById("nav_bar");
 /* Script relating to the header */
 
 // Change to enum when using typescript (or vue)
-const bgColours = ["#F0EBF4", "#B39BC8", "#FFD8CE", "#F76C6C",
-  "#F0DEFF", "#FEADB9"];
 const bwColour = ["white", "black"];
 const whiteShades = ["#FFFAFA", "#F0FFF0", "#F5FFFA", "#F0F8FF", "#F8F8FF", "#F5F5F5"];
-const landingBgSize = 2;
-const bgSize = 6;
+const landingBgSize = bwColour.length;
+const bgSize = whiteShades.length;
 var landingIndex = 0;
 var bgIndex = 0;
 
 // update background colour
 // parameter: element
 function updateBg(element, colourScheme) {
-  if (colourScheme === "bw") {
+  if (colourScheme === "bw") 
     element.style.backgroundColor = bwColour[landingIndex];
-    landingIndex = (++landingIndex >= landingBgSize ? 0 : landingIndex);
-  }
-  else if (colourScheme === "whiteShades") {
+  else if (colourScheme === "whiteShades") 
     element.style.backgroundColor = whiteShades[bgIndex];
+}
+
+function updateIndex(index) {
+  if (index === "bw")
+    landingIndex = (++landingIndex >= landingBgSize ? 0 : landingIndex);
+  else if (index === "whiteShades")
     bgIndex = (++bgIndex >= bgSize ? 0 : bgIndex);
-  }
 }
 
 function bgReset() {
-  body.style.backgroundColor = "#F0FFFF";
+  body.style.backgroundColor = "white";
+  navBar.style.backgroundColor = "white";
 }
 
 /* Script related to the landing page */
@@ -43,29 +45,32 @@ if (window.location.pathname === "/") {
     typedJsText[i].addEventListener("mouseenter", e => {
       updateBg(typedJsContainer, "bw");
       typedJsContainer.style.color = "black";
+      updateIndex("bw");
     });
   
     typedJsText[i].addEventListener("mouseleave", e => {
       updateBg(typedJsContainer, "bw");
       typedJsContainer.style.color = "white";
+      updateIndex("bw");
     });
   }
   
   // Using typed.js for the landing page name.
   var typed = new Typed("#name_typed", {
-    strings: ["Hrithvik S", "Jacob Sood^4000", "Hrithvik Sood"],
+    strings: ["Hrithvik S", "^20Jacob Sood^4000", "^20Hrithvik Sood"],
     typeSpeed: 85,
     backSpeed: 100,
     loop: false,
     startDelay: 1000,
-    backDelay: 0,
     showCursor: true,
     cursorChar: "|",
     onTypingResumed: function(pos, typed) { 
-      setTimeout(function() {
-        comingSoon.classList.add("fade_in");
-        b.reveal(10000, 2000);
-      }, 2750);
+      if (pos === 2) {
+        setTimeout(function() {
+          comingSoon.classList.add("fade_in");
+          b.reveal(10000, 2000);
+        }, 1000);
+      }
     }
   });
   
@@ -87,14 +92,28 @@ if (window.location.pathname === "/") {
 }
 
 /* Script related to the header and footer */
+var prevScrollpos = window.pageYOffset;
+window.onscroll = function() {
+var currentScrollPos = window.pageYOffset;
+  if (prevScrollpos > currentScrollPos) {
+    navBar.style.top = "0";
+  } else {
+    navBar.style.top = "-50px";
+  }
+  prevScrollpos = currentScrollPos;
+}
+
 const menu = document.getElementsByClassName("menu");
 const menuLen = menu.length;
 
 for (var i = 0; i < menuLen; i++) {
   menu[i].addEventListener("mouseenter", e => {
     updateBg(body, "whiteShades");
+    updateBg(navBar, "whiteShades");
+    updateIndex("whiteShades");
   });
 }
+
 for (var i = 0; i < menuLen; i++) {
   menu[i].addEventListener("mouseleave", bgReset);
 }
