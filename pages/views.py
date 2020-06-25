@@ -5,17 +5,17 @@ def home(request):
 	return render(request, 'pages/index.html', context)
 
 def about(request):
-	context = {'breadcrumb_title': 'about.'}
+	context = {}
 	return render(request, 'pages/about.html', context)
 
 def work(request):
-	context = {'breadcrumb_title': 'work.'}
-	return render(request, 'pages/work.html', context)
+	context = {}
+	return render(request, 'pages/work_blog.html', context)
 
 def blog(request):
-	context = {'breadcrumb_title': 'blog.'}
-	return render(request, 'pages/blog.html', context)
+	context = {}
+	return render(request, 'pages/work_blog.html', context)
 
 def contact(request):
-	context = {'breadcrumb_title': 'contact.'}
+	context = {}
 	return render(request, 'pages/contact.html', context)
