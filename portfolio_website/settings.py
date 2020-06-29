@@ -27,11 +27,10 @@ DEBUG = True
 ALLOWED_HOSTS = ["3.105.120.10", "hrithviksood.me"]
 
 # MONGODB SETTINGS
-MONGODB_DBNAME = 'portfolioWeb'
+MONGODB_DBNAME = os.getenv("MONGODB_DBNAME")
 MONGODB_PWD = os.getenv("MONGODB_PWD")
-MONGODB_USR = "jacobsood"
-MONGODB_HOSTNAME = os.getenv("MONGODB_HOSTNAME")
-MONGODB_HOST = "mongodb+srv://%s:%s@%s/%s?retryWrites=true&w=majority" % (MONGODB_USR, MONGODB_PWD, MONGODB_HOSTNAME, MONGODB_DBNAME)
+MONGODB_USR = os.getenv("MONGODB_USR")
+MONGODB_HOST = os.getenv("MONGODB_HOSTNAME")
 
 # Application definition
 
