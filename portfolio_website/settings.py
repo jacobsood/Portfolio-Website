@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'portfolio_website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgres',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': os.getenv('RDS_DB_NAME'),
         'USER': os.getenv('RDS_USERNAME'),
         'PASSWORD': os.getenv('RDS_PASSWORD'),
