@@ -26,16 +26,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["3.105.120.10", "hrithviksood.me"]
 
-# MONGODB SETTINGS
-MONGODB_DBNAME = os.getenv("MONGODB_DBNAME")
-MONGODB_PWD = os.getenv("MONGODB_PWD")
-MONGODB_USR = os.getenv("MONGODB_USR")
-MONGODB_HOST = os.getenv("MONGODB_HOSTNAME")
-
 # Application definition
 
 INSTALLED_APPS = [
-	'pages',
+    'pages',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -80,14 +74,12 @@ WSGI_APPLICATION = 'portfolio_website.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        "CLIENT": {
-            "host": MONGODB_HOST,
-            "username": MONGODB_USR,
-            "password": MONGODB_PWD,
-            "name": MONGODB_DBNAME,
-            "authMechanism": "SCRAM-SHA-1",
-        },
+        'ENGINE': 'django.db.backends.postgres',
+        'NAME': os.getenv('RDS_DB_NAME'),
+        'USER': os.getenv('RDS_USERNAME'),
+        'PASSWORD': os.getenv('RDS_PASSWORD'),
+        'HOST': os.getenv('RDS_HOSTNAME'),
+        'PORT': os.getenv('RDS_PORT'),
     }
 }
 
