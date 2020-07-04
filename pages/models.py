@@ -1,8 +1,17 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
+class Colours(models.Model):
+    colour = models.CharField(max_length=30)
+    
+    def __str__(self):
+        return self.colour
+
 class Tool(models.Model):
     tool = models.CharField(max_length=30)
+    
+    def __str__(self):
+        return self.tool
 
 class Blog(models.Model):
     title = models.CharField(max_length=255)
@@ -10,6 +19,9 @@ class Blog(models.Model):
     location = models.CharField(max_length=40)
     descriptions = ArrayField(models.TextField())
     links = ArrayField(models.URLField())
+    
+    def __str__(self):
+        return self.title
 
 class Work(models.Model):
     title = models.CharField(max_length=255)
@@ -17,6 +29,9 @@ class Work(models.Model):
     tools = models.ManyToManyField(Tool)
     descriptions = ArrayField(models.TextField())
     links = ArrayField(models.URLField())
+    
+    def __str__(self):
+        return self.title
 
 class About(models.Model):
     pass
