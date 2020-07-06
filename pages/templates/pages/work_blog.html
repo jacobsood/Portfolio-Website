@@ -1,40 +1,66 @@
 {% extends "pages/base.html" %}
 
-{% block title %}Hrithvik - Blogs{% endblock %}
+{% block title %}
+  {% if post_type == "blog" %}
+    Hrithvik - Blogs
+  {% elif post_type == "work" %}
+    Hrithvik - Work
+  {% endif %}
+{% endblock %}
 
 {% block content %}
-  {% for blog in blog_list %}
+  {% for post in post_list %}
   <section>
     <header>
       <div class="post_info">
-        <h1>{{ post.title|title }}</p>
-        {% if type == "work" %}
-          <h2><em>{{ post.purpose }}</em></h2>
+        <p>{{ post.title|upper }}<p>
+        {% if post_type == "work" %}
+          <p><em>{{ post.purpose|capfirst }}</em><p>
           <ul class="work_list">
-          {% for tool in post.tools %}
-            <li class="work_tools">{{ tool }}</li>
-          {% endfor %}
+            {% for tool in post.tools.all %}
+              <li class="work_tools">
+                {{ tool|upper }}
+              </li>
+            {% endfor %}
           </ul>
-        {% elif type == "blog" %}
-          <h2><em>{{ post.date }}</em>, {{ post.location }}</p>
+        {% elif post_type == "blog" %}
+          <p><em>{{ post.date|date:"SHORT_DATE_FORMAT" }}, {{ post.location|capfirst }}</em></p>
         {% endif %}
       </div>
     </header>
     <article>
       <div class="post_image">
-        <img alt="{{ post.caption }}" src="{{ post.src }}">
+        <img alt="{{ post.image.caption }}" src="{{ post.image.src.url }}">
       </div>
       {% for description in post.descriptions %}
-      <p>{{ description }}}</p>
+        <p>{{ description|capfirst }}</p>
       {% endfor %}
       <ul class="post_link">
         {% for link in post.links %}
-        <li><a class="button" rel="external" href="{{ link }}">Visit Website</a></li>
+          <li>
+            <a class="button" rel="external" href="{{ link }}">Visit Website</a>
+          </li>
         {% endfor %}
       </ul>
     </article>
   </section>
   {% endfor %}
+  
+  <section>
+    <article>
+      <div class="post_image">
+        <img alt="{{ blog.caption }}" src="https://www.travelmoneyoz.com/sites/v1.travelmoneyoz.com/files/G_tokyo%20city%20640x480_v1.jpg">
+      </div>
+      <!--{% for description in post.descriptions %}-->
+      <!--<p>{{ description }}</p>-->
+      <!--{% endfor %}-->
+      <p>{% lorem 3 p %}</p>
+      <ul class="post_link">
+        <li><a class="button" rel="external" href="www.google.com.au">Visit Website</a></li>
+        <li><a class="button" rel="external" href="www.google.com.au">Visit This</a></li>
+      </ul>
+    </article>
+  </section>
   
   <style>
     section header {
