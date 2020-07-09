@@ -57,7 +57,7 @@ footer {
   text-transform: uppercase;
   font-weight: 600;
   text-align: center;
-  color: #999;
+  color: #000000cf;
   background: none;
   display: flex;
   align-items: center;
@@ -98,7 +98,15 @@ li.menu {
 
 .menu, 
 #copyright {
-  opacity: 0.8;
+  opacity: 0.9;
+}
+
+.menu {
+  transition: all .2s ease-in-out; 
+}
+
+.menu:hover {
+  transform: scale(1.1);
 }
 
 footer img {
@@ -107,7 +115,6 @@ footer img {
 }
 
 /* The following is related to links */
-
 a:link, a:visited {
   text-decoration: none;
   color: inherit;
@@ -116,7 +123,7 @@ a:link, a:visited {
 }
 
 a:hover {
-  color: black;
+  color: #000;
 }
 
 a:active {
@@ -167,12 +174,10 @@ a {
 
 /* The following is related to the main content */
 #content {
-  background-color: inherit;
   display: flex;
   min-height: 96vh;
   flex-direction: column;
-  font-family: "Audrey";
-  font-size: 18px;
+  font-size: 17px;
 }
 
 /* The following is related to the work and blog content */
@@ -284,4 +289,125 @@ a.button {
   text-transform: uppercase;
   font-size: 14px;
   line-height: 1.2em;
+}
+
+/* The following style is related to the contact page */
+#contact_div {
+  font-size: 1.1em;
+  min-height: inherit;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+	color: #b7b7b7;
+}
+
+#contact_heading {
+  font-family: "Lemon Milk";
+  width: 50%;
+  color: #FF0400;
+}
+
+#contact_heading p {
+  font-family: "GT Sectra Fine";
+  font-size: 1.3em;
+  color: #b7b7b7;
+}
+
+.contact_tiles {
+	font-family: "GT Sectra Fine";
+	margin: auto 4%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  line-height: 1.6em;
+  padding: 0;
+}
+
+.contact_tiles li {
+	width: 35%;
+	height: 30vh;
+	margin: 5%;
+	position: relative;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(45deg, #262a2b, #36dceab8);
+	border: 2.5px solid #fff;
+	font-size: 20px;
+}
+
+.break {
+	flex-basis: 100%;
+	height: 0;
+}
+
+.contact_tiles li a {
+	border: 1px solid #b7b7b7;
+	padding: 10px 20px;
+	border-radius: 3px;
+	transition: all 0.3s ease-in-out;
+	transform: translateY(-100%);
+	opacity: 0;
+	overflow: hidden;
+}
+
+.contact_tiles li a:before {
+	content: '';
+	position: absolute;
+	height: 100%;
+	width: 130%;
+	background: #b7b7b7;
+	top: 0;
+	opacity: 0;
+	left: -140px;
+	border-radius: 0 20px 20px 0;
+	z-index: -1;
+	transition: all 0.3s ease-in-out;
+}
+.contact_tiles li:hover a {
+	transform: translateY(-75%);
+	opacity: 1;
+}
+.contact_tiles li a:hover {
+	color: #262a2b;
+}
+.contact_tiles li a:hover:before {
+	left: 0;
+	opacity: 1;
+}
+
+.contact_tiles li:before {
+	content: '';
+	position: absolute;
+	top: -2%;
+	left: -2%;
+	right: -2%;
+	bottom: -2%;
+	z-index: -1;
+	background: #fff;
+	transform: skew(2deg, 2deg);
+}
+
+.contact_tiles li:nth-child(1):before {
+	background: #C9FFBF;
+  background: -webkit-linear-gradient(to right, #FFAFBD, #C9FFBF);
+  background: linear-gradient(to right, #FFAFBD, #C9FFBF);
+}
+.contact_tiles li:nth-child(2):before {
+	background: #f2709c;
+  background: -webkit-linear-gradient(to right, #ff9472, #f2709c);
+  background: linear-gradient(to right, #ff9472, #f2709c);
+}
+.contact_tiles li:nth-child(3):before {
+  background: #c21500;
+  background: -webkit-linear-gradient(to right, #ffc500, #c21500);
+  background: linear-gradient(to right, #ffc500, #c21500);
+}
+.contact_tiles li:nth-child(4):before {
+	background: #FC354C;
+  background: -webkit-linear-gradient(to right, #0ABFBC, #FC354C);
+  background: linear-gradient(to right, #0ABFBC, #FC354C);
 }
