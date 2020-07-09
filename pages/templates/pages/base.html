@@ -7,10 +7,19 @@
   <meta name="keywords" content="Hrithvik Sood, Portfolio,
     Computer Science, Student">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}Hrithvik Sood{% endblock %}</title>
+  <title>Hrithvik Sood {{ page }}</title>
   <link rel="stylesheet" type="text/css" href="{% static 'pages/base.css' %}">
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
   <script src="https://cdn.jsdelivr.net/npm/baffle@0.3.6/dist/baffle.min.js"></script>
+  <style>
+    {{ page_style }} {
+      transform: scale(1.1);
+      border-bottom: 1px solid black;
+      box-shadow: inset 0 -0.06em 0 #548d6c;
+      font-weight: 700;
+      color: black;
+    }
+  </style>
 </head>
 
 <body>
