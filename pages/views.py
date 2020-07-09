@@ -3,12 +3,13 @@ from .models import *
 
 def home(request):
 	context = {
+		'page': 'Home',
 	}
 	return render(request, 'pages/index.html', context)
 
 def about(request):
 	context = {
-		'page': '- About',
+		'page': 'About',
 		'page_style': '#about.menu',
 	}
 	return render(request, 'pages/about.html', context)
@@ -16,7 +17,7 @@ def about(request):
 def work(request):
 	work_object = get_list_or_404(Work)
 	context = {
-		'page': '- Work',
+		'page': 'Work',
 		'page_style': '#work.menu',
 		'post_list': work_object,
 		'color': 'hotpink',
@@ -26,14 +27,14 @@ def work(request):
 
 def blog(request):
 	context = {
-		'page': '- Blog',
+		'page': 'Blog',
 		'page_style': '#blog.menu',
 	}
 	return render(request, 'pages/work_blog.html', context)
 
 def contact(request):
 	context = {
-		'page': '- Contact',
+		'page': 'Contact',
 		'page_style': '#contact.menu',
 		"email": "hrithviksood1@gmail.com",
 		"linkedin": "https://www.linkedin.com/in/hrithvik-sood/",
