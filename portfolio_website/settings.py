@@ -27,7 +27,7 @@ if (os.getenv("DJANGO_DEBUG") == "True"):
 else:
     DEBUG = False
 
-ALLOWED_HOSTS = [os.getenv("DJANGO_ALLOWED_HOSTS")]
+ALLOWED_HOSTS = ['www.hrithviksood.me', 'hrithviksood.me']
 
 # Application definition
 
