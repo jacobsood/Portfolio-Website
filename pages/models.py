@@ -50,9 +50,3 @@ class Work(models.Model):
     
     def __str__(self):
         return self.title
-
-class About(models.Model):
-    pass
-
-class Contact(models.Model):
-    pass
