@@ -9,11 +9,12 @@ class Image(models.Model):
         return self.caption
 
 class Colour(models.Model):
+    shade = models.CharField(max_length=30)
     background_colour = models.CharField(max_length=30)
     colour = models.CharField(max_length=30)
     
     def __str__(self):
-        return self.colour
+        return self.shade
 
 class Tool(models.Model):
     tool = models.CharField(max_length=30)
