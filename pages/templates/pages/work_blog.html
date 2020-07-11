@@ -1,20 +1,12 @@
 {% extends "pages/base.html" %}
 
-{% block title %}
-  {% if post_type == "blog" %}
-    Hrithvik - Blogs
-  {% elif post_type == "work" %}
-    Hrithvik - Work
-  {% endif %}
-{% endblock %}
-
 {% block content %}
   {% for post in post_list %}
   <section>
     <header>
       <div class="post_info">
         <p>{{ post.title|upper }}<p>
-        {% if post_type == "work" %}
+        {% if page == "Work" %}
           <p><em>{{ post.purpose|capfirst }}</em><p>
           <ul class="work_list">
             {% for tool in post.tools.all %}
@@ -23,8 +15,10 @@
               </li>
             {% endfor %}
           </ul>
-        {% elif post_type == "blog" %}
-          <p><em>{{ post.date|date:"SHORT_DATE_FORMAT" }}, {{ post.location|capfirst }}</em></p>
+        {% elif page == "Blog" %}
+          <p><em>{{ post.date|date:"SHORT_DATE_FORMAT" }}. {{ post.location|capfirst }}</em></p>
+        {% else %}
+          <p>Errr... Error: {{ page }}</p>
         {% endif %}
       </div>
     </header>
@@ -38,29 +32,13 @@
       <ul class="post_link">
         {% for link in post.links %}
           <li>
-            <a class="button" rel="external" href="{{ link }}">Visit Website</a>
+            <a class="button" target="_blank" rel="external" href="{{ link }}">{{ button_hint }}</a>
           </li>
         {% endfor %}
       </ul>
     </article>
   </section>
   {% endfor %}
-  
-  <section>
-    <article>
-      <div class="post_image">
-        <img alt="{{ blog.caption }}" src="https://www.travelmoneyoz.com/sites/v1.travelmoneyoz.com/files/G_tokyo%20city%20640x480_v1.jpg">
-      </div>
-      <!--{% for description in post.descriptions %}-->
-      <!--<p>{{ description }}</p>-->
-      <!--{% endfor %}-->
-      <p>{% lorem 3 p %}</p>
-      <ul class="post_link">
-        <li><a class="button" rel="external" href="www.google.com.au">Visit Website</a></li>
-        <li><a class="button" rel="external" href="www.google.com.au">Visit This</a></li>
-      </ul>
-    </article>
-  </section>
   
   <style>
     section header {
@@ -77,13 +55,6 @@
     article ul li a.button {
       border: 1px solid {{ background }};
       box-shadow: inset 0 -0.06em 0 {{ background }};
-    }
-    
-    #blog.menu {
-      border-bottom: 1px solid black;
-      box-shadow: inset 0 -0.06em 0 #548d6c;
-      font-weight: 900;
-      color: black;
     }
   </style>
 {% endblock %}
