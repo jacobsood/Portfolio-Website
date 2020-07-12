@@ -50,6 +50,26 @@ body {
   background-color: red;
 }
 
+/* The following is related to links */
+a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+}
+
+a:hover {
+  color: inherit;
+}
+
+a:active {
+  color: inherit;
+}
+
+a {
+  transition: color 0.2s ease-in;
+}
+
 /* The following is related to the nav bar and footer */
 nav, 
 footer {
@@ -106,32 +126,17 @@ li.menu {
 }
 
 .menu:hover {
+  opacity: 1;
   transform: scale(1.1);
+}
+
+nav ul li a:hover {
+  color: red;
 }
 
 footer img {
   width: 1rem;
   margin-left: 5px;
-}
-
-/* The following is related to links */
-a:link, a:visited {
-  text-decoration: none;
-  color: inherit;
-  padding: 0;
-  margin: 0;
-}
-
-a:hover {
-  color: #000;
-}
-
-a:active {
-  color: inherit;
-}
-
-a {
-  transition: color 0.3s linear;
 }
 
 /* The following is related to the landing page */
@@ -300,7 +305,6 @@ a.button {
   align-items: center;
   justify-content: center;
   text-align: center;
-	color: #b7b7b7;
 }
 
 #contact_heading {
@@ -312,31 +316,30 @@ a.button {
 #contact_heading p {
   font-family: "GT Sectra Fine";
   font-size: 1.3em;
-  color: #b7b7b7;
+  color: #000;
 }
 
 .contact_tiles {
 	font-family: "GT Sectra Fine";
-	margin: auto 4%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   line-height: 1.6em;
   padding: 0;
 }
 
 .contact_tiles li {
-	width: 35%;
-	height: 30vh;
-	margin: 5%;
+	width: 300px;
+	height: 300px;
 	position: relative;
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 	background: linear-gradient(45deg, #262a2b, #36dceab8);
+	color: #fff;
 	border: 2.5px solid #fff;
-	font-size: 20px;
+	margin: 4%;
 }
 
 .break {
@@ -346,12 +349,13 @@ a.button {
 
 .contact_tiles li a {
 	border: 1px solid #b7b7b7;
-	padding: 10px 20px;
+	padding: 5px 20px;
 	border-radius: 3px;
 	transition: all 0.3s ease-in-out;
-	transform: translateY(-100%);
+	transform: translateY(-50%);
 	opacity: 0;
 	overflow: hidden;
+	font-size: 16px;
 }
 
 .contact_tiles li a:before {
@@ -368,7 +372,7 @@ a.button {
 	transition: all 0.3s ease-in-out;
 }
 .contact_tiles li:hover a {
-	transform: translateY(-75%);
+	transform: translateY(-25%);
 	opacity: 1;
 }
 .contact_tiles li a:hover {
