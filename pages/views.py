@@ -23,8 +23,6 @@ def work(request):
 		'page': 'Work',
 		'page_style': '#work.menu',
 		'post_list': work_object,
-		'color': 'white',
-		'background': 'blue',
 	}
 	return render(request, 'pages/work_blog.html', context)
 
@@ -37,8 +35,6 @@ def blog(request):
 		'page': 'Blog',
 		'page_style': '#blog.menu',
 		'post_list': blog_object,
-		'color': 'white',
-		'background': 'blue',
 	}
 	return render(request, 'pages/work_blog.html', context)
 
