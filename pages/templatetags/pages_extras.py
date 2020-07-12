@@ -14,6 +14,7 @@ def cycle_db_array(user_list):
     db_array = user_list
     array_size = len(db_array)
     array_index = 0
+    return ""
     
 @register.simple_tag
 def get_column(column):
