@@ -4,7 +4,7 @@
 {% block content %}
   {% cycle_db_array colours %}
   {% for post in post_list %}
-  <section id="{{ post.title|cut:" " }}">
+  <section id="{{ post.title|make_id|cut:" " }}">
     <header>
       <div class="post_info">
         <p>{{ post.title|upper }}<p>
@@ -39,18 +39,18 @@
     </article>
   </section>
   <style>
-    #{{ post.title|cut:" " }} header {
+    #{{ post.title|make_id|cut:" " }} header {
       background: {% get_column "background_colour" %};
       color: {% get_column "colour" %};
     }
     
-    #{{ post.title|cut:" " }} article ul li a.button:hover {
+    #{{ post.title|make_id|cut:" " }} article ul li a.button:hover {
       box-shadow: inset 0 -1.2em 0 {% get_column "background_colour" %};
       background: {% get_column "background_colour" %};
       color: {% get_column "colour" %};
     }
     
-    #{{ post.title|cut:" " }} article ul li a.button {
+    #{{ post.title|make_id|cut:" " }} article ul li a.button {
       border: 1px solid {% get_column "background_colour" %};
       box-shadow: inset 0 -0.06em 0 {% get_column_cycle "background_colour" %};
     }
