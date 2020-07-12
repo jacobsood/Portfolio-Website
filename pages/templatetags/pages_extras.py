@@ -1,4 +1,6 @@
 from django import template
+from django.template.defaultfilters import stringfilter
+import string
 
 register = template.Library()
 
@@ -27,3 +29,8 @@ def get_column_cycle(column):
     global array_size, array_index
     array_index = 0 if array_index + 1 >= array_size else array_index + 1
     return attribute
+
+@register.filter
+@stringfilter
+def make_id(key):
+    return key.translate(str.maketrans('', '', string.punctuation))
