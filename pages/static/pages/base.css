@@ -39,6 +39,13 @@
   font-weight: 400;
 }
 
+@font-face {
+  font-family: "CustomY78";
+  src: url("../fonts/CustomY78.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
 /* Global style */
 body {
   min-height: 100vh;
@@ -87,7 +94,7 @@ footer {
 nav {
   position: sticky;
   top: 0;
-  font-family: "Audrey", "Lemon Milk";
+  font-family: "Audrey", "Lemon Milk", "CustomY78";
   height: 5vh;
   padding: 0 5%;
   background: white;
@@ -161,9 +168,12 @@ footer img {
 }
 
 #coming_soon {
+  white-space: nowrap;
+  text-overflow: clip;
+  overflow: hidden;
   opacity: 0;
   padding: 0;
-  width: 18rem;
+  width: 10rem;
   margin: 0 auto;
 }
 
@@ -180,6 +190,8 @@ footer img {
 /* The following is related to the main content */
 #content {
   display: flex;
+  margin: 0;
+  padding: 0;
   min-height: 96vh;
   flex-direction: column;
   font-size: 17px;
@@ -284,7 +296,7 @@ section a:hover {
 }
 
 a.button {
-  font-family: "Lemon Milk";
+  font-family: "Lemon Milk", "CustomY78";
   display: flex;
   align-items: center;
   justify-content: center;
@@ -308,7 +320,7 @@ a.button {
 }
 
 #contact_heading {
-  font-family: "Lemon Milk";
+  font-family: "Lemon Milk", "CustomY78";
   width: 50%;
   color: #FF0400;
 }
@@ -414,4 +426,50 @@ a.button {
 	background: #FC354C;
   background: -webkit-linear-gradient(to right, #0ABFBC, #FC354C);
   background: linear-gradient(to right, #0ABFBC, #FC354C);
+}
+
+/* The following is related to the about page */
+#about_content {
+  margin: 0 2.5%;
+  display: flex;
+  align-items: center;
+  font-size: 4.7vw;
+  font-family: "CustomY78";
+  line-height: 0.8em;
+}
+
+#about_content span {
+  white-space: nowrap;
+  text-overflow: clip;
+  background: black;
+  overflow: hidden;
+  display: inline-block;
+}
+
+#name {
+  max-width: 20vw;
+}
+
+#year {
+  max-width: 30vw;
+}
+
+#passion {
+  max-width: 58vw;
+}
+
+.red_text {
+  color: red;
+}
+
+.red_text::selection {
+  background-color: black;
+}
+
+.left_align {
+  text-align: left;
+}
+
+.right_align {
+  text-align: right;
 }
