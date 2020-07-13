@@ -94,7 +94,7 @@ if (window.location.pathname === "/") {
 /* Script related to the header and footer */
 var prevScrollpos = window.pageYOffset;
 window.onscroll = function() {
-var currentScrollPos = window.pageYOffset;
+  var currentScrollPos = window.pageYOffset;
   if (prevScrollpos > currentScrollPos) {
     navBar.style.top = "0";
   } else {
@@ -116,4 +116,46 @@ for (var i = 0; i < menuLen; i++) {
 
 for (var i = 0; i < menuLen; i++) {
   menu[i].addEventListener("mouseleave", bgReset);
+}
+
+/* The following is related to the "home" button */
+// if button pressed in home page, change theme. Background = black, foreground = white
+// and vice versa
+
+class span_cycle {
+  constructor(list, tag) {
+    this.tag = tag;
+    this.list = list;
+    this.index = 0;
+    this.size = list.length;
+  }
+  
+  // Not used 
+  start_cycle() {
+    setTimeout(() => this.cycle(), 6000);
+  }
+  
+  cycle() {
+    let b = baffle(this.tag)
+      .start()
+      .text(currentText => this.list[this.index])
+      .set({
+        characters: "░▉╳▓⧚╳⦀⧛▒▐╳ ▓⦚▒▊╸┻▓▒▛╮▂┆┉▞╳",
+        speed: 200,
+      })
+      .reveal(1500, 800);
+      this.index = ++this.index >= this.size ? 0: this.index;
+      setTimeout(() => this.cycle(), 6000);
+  }
+}
+
+/* The following is related to the about page */
+var span_tags = ["#name", "#year", "#passion"];
+var span_lists = [["Hrithvik.", "Jacob."], ["fourth year", "4th year"], ["Web Development.", "Artificial Intelligence.", "Machine Learning.", "Algorithmic Trading."]];
+
+if (window.location.pathname === "/about/") {
+  for (var i = 0; i < 3; i++) {
+    let span_obj = new span_cycle(span_lists[i], span_tags[i]);
+    span_obj.cycle();
+  }
 }
