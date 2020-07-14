@@ -37,7 +37,7 @@ function bgReset() {
 /* Script related to the landing page */
 const typedJsContainer = document.getElementById("typedjs_container");
 const typedJsText = document.getElementsByClassName("hover_state");
-const comingSoon = document.getElementById("coming_soon");
+// const comingSoon = document.getElementById("coming_soon");
 
 // if on the home page
 if (window.location.pathname === "/") {
@@ -45,7 +45,7 @@ if (window.location.pathname === "/") {
   footer.style.display = "none";
   navBar.style.display = "none";
   // On hover, flip background and foreground colour
-  for (var i = 0; i < 2; i++) {
+  for (var i = 0; i < typedJsText.length; i++) {
     typedJsText[i].addEventListener("mouseenter", e => {
       updateBg(typedJsContainer, "bw");
       typedJsContainer.style.color = "black";
@@ -68,23 +68,23 @@ if (window.location.pathname === "/") {
     startDelay: 1000,
     showCursor: true,
     cursorChar: "|",
-    onTypingResumed: function(pos, typed) { 
-      if (pos === 2) {
-        setTimeout(function() {
-          comingSoon.classList.add("fade_in");
-          b.reveal(10000, 2000);
-        }, 1000);
-      }
-    }
+    // onTypingResumed: function(pos, typed) { 
+    //   if (pos === 2) {
+    //     setTimeout(function() {
+    //       comingSoon.classList.add("fade_in");
+    //       b.reveal(10000, 2000);
+    //     }, 1000);
+    //   }
+    // }
   });
   
   // Coming soon baffle
-  let b = baffle("#coming_soon")
-    .start()
-    .set({
-      characters: "█<█ ▒▓/▓▓ ▒>▓<▓ ░█▓ ▒█>░▓ ▓██░ ▒▓░ ▓/█▒ >/░▒",
-      speed: 200,
-    });
+  // let b = baffle("#coming_soon")
+  //   .start()
+  //   .set({
+  //     characters: "█<█ ▒▓/▓▓ ▒>▓<▓ ░█▓ ▒█>░▓ ▓██░ ▒▓░ ▓/█▒ >/░▒",
+  //     speed: 200,
+  //   });
 
   // Move down from landing page into the home page and hide typed js
   typedJsContainer.addEventListener("click", e => {
