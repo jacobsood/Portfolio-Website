@@ -1,7 +1,8 @@
 /* Global */
 const body = document.body;
 const navBar = document.getElementById("nav_bar");
-
+const content = document.getElementById("content");
+const footer = document.getElementById("page_footer");
 /* Script relating to the header */
 
 // Change to enum when using typescript (or vue)
@@ -40,6 +41,9 @@ const comingSoon = document.getElementById("coming_soon");
 
 // if on the home page
 if (window.location.pathname === "/") {
+  content.style.display = "none";
+  footer.style.display = "none";
+  navBar.style.display = "none";
   // On hover, flip background and foreground colour
   for (var i = 0; i < 2; i++) {
     typedJsText[i].addEventListener("mouseenter", e => {
@@ -84,6 +88,9 @@ if (window.location.pathname === "/") {
 
   // Move down from landing page into the home page and hide typed js
   typedJsContainer.addEventListener("click", e => {
+    content.style.display = "flex";
+    navBar.style.display = "flex";
+    footer.style.display = "flex";
     navBar.scrollIntoView({behavior: "smooth"});
     setTimeout(function() {
       typedJsContainer.style.display = "none";
