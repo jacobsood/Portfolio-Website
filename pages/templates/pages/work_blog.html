@@ -7,9 +7,9 @@
   <section id="{{ post.title|make_id|cut:" " }}">
     <header>
       <div class="post_info">
-        <p>{{ post.title|upper }}<p>
+        <h1>{{ post.title|upper }}<h1>
         {% if page == "Work" %}
-          <p><em>{{ post.purpose|capfirst }}</em><p>
+          <h2><em>{{ post.purpose|capfirst }}</em></h2>
           <ul class="work_list">
             {% for tool in post.tools.all %}
               <li class="work_tools">
@@ -18,7 +18,7 @@
             {% endfor %}
           </ul>
         {% elif page == "Blog" %}
-          <p><em>{{ post.date|date:"SHORT_DATE_FORMAT" }}. {{ post.location|capfirst }}</em></p>
+          <h2><em>{{ post.date|date:"SHORT_DATE_FORMAT" }}. {{ post.location|capfirst }}</em></h2>
         {% endif %}
       </div>
     </header>
