@@ -1,16 +1,9 @@
 from django.shortcuts import render, get_list_or_404
 from .models import *
 
-def home(request):
-	context = {
-		'page': 'Home',
-	}
-	return render(request, 'pages/index.html', context)
-
 def about(request):
 	context = {
-		'page': 'About',
-		'page_style': '#about.menu',
+		'page': 'Home',
 	}
 	return render(request, 'pages/about.html', context)
 

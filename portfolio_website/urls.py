@@ -18,8 +18,7 @@ from django.conf.urls.static import static
 from pages import views
 
 urlpatterns = [
-	path('', views.home, name='home'),
-	path('about/', views.about, name='about'),
+	path('', views.about, name='home'),
 	path('work/', views.work, name='work'),
 	path('blog/', views.blog, name='blog'),
 	path('contact/', views.contact, name='contact'),
