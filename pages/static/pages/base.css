@@ -89,6 +89,7 @@ footer {
 }
 
 nav {
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -360,6 +361,12 @@ a.button {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  #contact_div {
+    flex-wrap: wrap;
+  }
 }
 
 #contact_heading {
