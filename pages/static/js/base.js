@@ -150,11 +150,16 @@ class span_cycle {
 }
 
 /* The following is related to the about page */
-var span_tags = ["#name", "#year", "#passion"];
-var span_lists = [["Hrithvik.", "Jacob."], ["fourth year", "4th year"], ["Web Development.", "Artificial Intelligence.", "Machine Learning.", "Algorithmic Trading."]];
+var span_tags = ["#name", "#year", "#passion", "#interest"];
+var span_lists = [
+  ["Hrithvik.", "Jacob."], 
+  ["fourth year", "4th year"], 
+  ["Web Development.", "Artificial Intelligence.", "Machine Learning.", "Algorithmic Trading."],
+  ["trading the market.", "making photographs.", "conquering the hiking trails.", "spicing up the kitchen."]
+  ];
 
 if (window.location.pathname === "/about/") {
-  for (var i = 0; i < 3; i++) {
+  for (var i = 0; i < span_lists.length; i++) {
     let span_obj = new span_cycle(span_lists[i], span_tags[i]);
     span_obj.cycle();
   }
