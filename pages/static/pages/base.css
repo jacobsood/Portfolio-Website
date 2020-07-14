@@ -537,3 +537,9 @@ a.button {
 .right_align {
   text-align: right;
 }
+
+@media only screen and (max-width: 600px) {
+  #about_content {
+    flex-wrap: wrap;
+  }
+}
