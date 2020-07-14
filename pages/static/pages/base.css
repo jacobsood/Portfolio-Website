@@ -80,47 +80,49 @@ a {
 /* The following is related to the nav bar and footer */
 nav, 
 footer {
-  font-size: 13px;
+  padding: 0 5%;
+  font-size: 0.8em;
   text-transform: uppercase;
   font-weight: 600;
   text-align: center;
   color: #000000cf;
-  background: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: sticky;
   top: 0;
   font-family: "Audrey", "Lemon Milk", "CustomY78";
-  height: 5vh;
-  padding: 0 5%;
+  min-height: 5vh;
   background: white;
   transition: top 0.3s;
 }
 
-footer {
-  font-family: "GT Sectra Fine";
-  font-weight: 900;
-  height: 10vh;
-  padding: 0 25%;
-  background: #eee;
+#home {
+  margin: 0 15px;
+  font-size: 1em;
 }
 
-nav ul,
-footer ul {
-  margin-left: auto;
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "GT Sectra Fine";
+  font-weight: 900;
+  min-height: 10vh;
+  background: #eee;
 }
 
 ul {
   display: flex;
   list-style-type: none;
+  padding: 0;
 }
 
 li.menu {
-  margin-left: 30px;
+  margin: 0 15px;
 }
 
 .menu, 
@@ -144,6 +146,15 @@ nav ul li a:hover {
 footer img {
   width: 1rem;
   margin-left: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  #page_footer ul {
+    display: none;
+  }
+  #nav_bar {
+    padding: 0;
+  }
 }
 
 /* The following is related to the landing page */
@@ -240,7 +251,7 @@ section header {
     font-size: 2.75vmin;
   }
   .post_info h2 {
-    font-size: 2.65vmin;
+    font-size: 2.4vmin;
   }
   .work_list {
     font-size: 1.75vmin;
