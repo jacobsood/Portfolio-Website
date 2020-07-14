@@ -1,5 +1,15 @@
 {% extends "pages/base.html" %}
 
+{% block body %}
+  <div id="typedjs_container">
+    <div id="typed_js">
+      <h1 class="typed-cursor hover_state" id="name_typed"></h1>
+      <h2 id="coming_soon" class="hover_state">Coming Soon</h2>
+    </div>
+  </div>
+  {{ block.super }}
+{% endblock %}
+
 {% block content %}
 <div id="about_content">
   <div class="left_align">

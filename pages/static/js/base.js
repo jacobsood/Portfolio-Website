@@ -158,7 +158,7 @@ var span_lists = [
   ["trading the market.", "making photographs.", "conquering the hiking trails.", "spicing up the kitchen."]
   ];
 
-if (window.location.pathname === "/about/") {
+if (window.location.pathname === "/") {
   for (var i = 0; i < span_lists.length; i++) {
     let span_obj = new span_cycle(span_lists[i], span_tags[i]);
     span_obj.cycle();
