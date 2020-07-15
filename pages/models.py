@@ -14,6 +14,13 @@ class Image(models.Model):
     
     def __str__(self):
         return self.caption
+        
+class Link(models.Model):
+    button_text = models.CharField(max_length=50)
+    url = models.URLField()
+    
+    def __str__(self:
+        return self.button_text
 
 class Colour(models.Model):
     shade = models.CharField(max_length=30)
