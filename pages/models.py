@@ -16,10 +16,10 @@ class Image(models.Model):
         return self.caption
         
 class Link(models.Model):
-    button_text = models.CharField(max_length=50)
-    url = models.URLField()
+    button_text = models.CharField(max_length=50, default="Visit Website")
+    url = models.URLField(default="www.hrithviksood.me")
     
-    def __str__(self:
+    def __str__(self):
         return self.button_text
 
 class Colour(models.Model):
