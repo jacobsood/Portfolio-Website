@@ -302,8 +302,8 @@ section article ul li {
   margin-top: 80px;
 }
 
-.post_image img {
-  height: auto;
+.post_image img,
+.post_image video {
   width: 95%;
   max-width: 950px;
 }

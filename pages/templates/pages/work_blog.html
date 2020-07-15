@@ -24,7 +24,13 @@
     </header>
     <article>
       <div class="post_image">
-        <img alt="{{ post.image.caption }}" src="{{ post.image.src.url }}">
+        {% if post.video %}
+          <video autoplay muted loop playsinline title="{{ post.title }}" preload="auto" poster="{{ post.image.src.url }}">
+            <source src="{{ post.video.src.url }}" type="video/mp4" />
+          </video>
+        {% else %}
+          <img alt="{{ post.image.caption }}" src="{{ post.image.src.url }}">
+        {% endif %}
       </div>
       {% for description in post.descriptions %}
         <p>{{ description|capfirst }}</p>
@@ -43,6 +49,14 @@
       background: {% get_column "background_colour" %};
       color: {% get_column "colour" %};
     }
+    
+    {% if post.video %}
+      #{{ post.title|make_id|cut:" " }} article .post_image img, 
+      #{{ post.title|make_id|cut:" " }} article .post_image video {
+        border: 2px solid {% get_column "background_colour" %};
+        box-shadow: 0 -2em 0 {% get_column "background_colour" %};
+      }
+    {% endif %}
     
     #{{ post.title|make_id|cut:" " }} article ul li a.button:hover {
       box-shadow: inset 0 -1.2em 0 {% get_column "background_colour" %};
