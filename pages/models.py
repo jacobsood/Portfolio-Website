@@ -1,9 +1,16 @@
 from django.db import models
 from django.contrib.postgres.fields import ArrayField
 
+class Video(models.Model):
+    title = models.CharField(max_length=255)
+    src = models.FileField(upload_to="videos", default="videos/default.mp4")
+    
+    def __str__(self):
+        return self.title
+
 class Image(models.Model):
     caption = models.CharField(max_length=255)
-    src = models.ImageField(upload_to="images/work_blog", default='images/work_blog/default.jpg')
+    src = models.ImageField(upload_to="images/work_blog", default='images/work_blog/ComingSoon.png')
     
     def __str__(self):
         return self.caption
@@ -46,7 +53,10 @@ class Work(models.Model):
     image = models.OneToOneField(
         Image, 
         on_delete=models.CASCADE,
-        primary_key=True,
+    )
+    video = models.OneToOneField(
+        Video,
+        on_delete=models.CASCADE,
     )
     
     def __str__(self):
