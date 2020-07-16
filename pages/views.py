@@ -12,7 +12,6 @@ def work(request):
 	colours = get_list_or_404(Colour)
 	context = {
 		'colours': colours,
-		'button_hint': 'Visit Website',
 		'page': 'Work',
 		'page_style': '#work.menu',
 		'post_list': work_object,
@@ -24,7 +23,6 @@ def blog(request):
 	colours = get_list_or_404(Colour)
 	context = {
 		'colours': colours,
-		'button_hint': 'View Original',
 		'page': 'Blog',
 		'page_style': '#blog.menu',
 		'post_list': blog_object,

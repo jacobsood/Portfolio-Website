@@ -25,21 +25,25 @@
     <article>
       <div class="post_image">
         {% if post.video %}
-          <video autoplay muted loop playsinline title="{{ post.title }}" preload="auto" poster="{{ post.image.src.url }}">
-            <source src="{{ post.video.src.url }}" type="video/mp4" />
+          <video autoplay muted loop playsinline title="{{ post.title }}" preload="auto" poster="{{ post.image.url }}">
+            <source src="{{ post.video.url }}" type="video/mp4" />
           </video>
         {% else %}
-          <img alt="{{ post.image.caption }}" src="{{ post.image.src.url }}">
+          <img alt="{{ post.image.caption }}" src="{{ post.image.url }}">
         {% endif %}
       </div>
-      {% for description in post.descriptions %}
-        <p>{{ description|capfirst }}</p>
-      {% endfor %}
+      <p>{{ post.descriptions|linebreaks }}</p>
       <ul class="post_link">
-        {% for link in post.links %}
+        {% for link in post.bloglink_set.all %}
           <li>
-            <a class="button" target="_blank" rel="external" href="{{ link }}">{{ button_hint }}</a>
+            <a class="button" target="_blank" rel="external" href="{{ link.url }}">{{ link.button_text }}</a>
           </li>
+        {% empty %}
+          {% for link in post.worklink_set.all %}
+            <li>
+              <a class="button" target="_blank" rel="external" href="{{ link.url }}">{{ link.button_text }}</a>
+            </li>
+          {% endfor %}
         {% endfor %}
       </ul>
     </article>
