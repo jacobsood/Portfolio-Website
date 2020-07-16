@@ -29,6 +29,15 @@ else:
 
 ALLOWED_HOSTS = ['www.hrithviksood.me', 'hrithviksood.me']
 
+# Deployment checks
+SECURE_SSL_REDIRECT = True
+SECURE_HSTS_SECONDS = 3600
+SESSION_COOKIE_SECURE = True
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+CSRF_COOKIE_SECURE = True
+SECURE_HSTS_PRELOAD = True
+SECURE_REFERRER_POLICY = "same-origin"
+
 # Application definition
 
 INSTALLED_APPS = [
